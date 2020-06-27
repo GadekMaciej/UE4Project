@@ -2,7 +2,9 @@
 
 
 #include "SMainMenu.h"
+#include "Internationalization/Text.h"
 #include "SlateOptMacros.h"
+
 
 #define LOCTEXT_NAMESPACE "SMainMenu"
 BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
@@ -23,6 +25,7 @@ void SMainMenu::Construct(const FArguments& InArgs)
 		[
 			SNew(SHorizontalBox)
 			+ SHorizontalBox::Slot()
+			.Padding(100)
 			.VAlign(VAlign_Center)
 			.HAlign(HAlign_Fill)
 			[
@@ -31,11 +34,12 @@ void SMainMenu::Construct(const FArguments& InArgs)
 				[
 					SNew(STextBlock)
 					.Text(LOCTEXT("PlayGame", "Play"))
-					//.Text(TEXT("kocek"))
-					// -M Later find out why this doesn't work instead of LOCTEXT above
+					//.Text(FText::FromString("String"))
+					//-M Later find out why this doesn't work instead of LOCTEXT above
 				]
 			]
 			+ SHorizontalBox::Slot()
+			.Padding(100)
 			.VAlign(VAlign_Center)
 			.HAlign(HAlign_Fill)
 			[
@@ -47,6 +51,7 @@ void SMainMenu::Construct(const FArguments& InArgs)
 				]
 			]
 			+ SHorizontalBox::Slot()
+			.Padding(100)
 			.VAlign(VAlign_Center)
 			.HAlign(HAlign_Fill)
 			[
