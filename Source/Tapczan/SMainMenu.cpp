@@ -9,23 +9,54 @@ BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 void SMainMenu::Construct(const FArguments& InArgs)
 {
 	OwnerHUD = InArgs._OwnerHUD;
-	
+
 	ChildSlot
 	.VAlign(VAlign_Fill)
 	.HAlign(HAlign_Fill)
 	[
+
 		SNew(SOverlay)
 		+ SOverlay::Slot()
-		.VAlign(VAlign_Top)
-		.HAlign(HAlign_Center)
+		.Padding(100)
+		.VAlign(VAlign_Bottom)
+		.HAlign(HAlign_Fill)
 		[
-			// Inside lies a text block with these settings
-			SNew(STextBlock)
-			.ShadowColorAndOpacity(FLinearColor::Black)
-			.ColorAndOpacity(FLinearColor::Yellow)
-			.ShadowOffset(FIntPoint(-1, 1))
-			// localized text to be translated with a generic name HelloSlateText
-			.Text(LOCTEXT("HelloSlateText", "Hello, Slate!"))
+			SNew(SHorizontalBox)
+			+ SHorizontalBox::Slot()
+			.VAlign(VAlign_Center)
+			.HAlign(HAlign_Fill)
+			[
+				SNew(SButton)
+				.Content()
+				[
+					SNew(STextBlock)
+					.Text(LOCTEXT("PlayGame", "Play"))
+					//.Text(TEXT("kocek"))
+					// -M Later find out why this doesn't work instead of LOCTEXT above
+				]
+			]
+			+ SHorizontalBox::Slot()
+			.VAlign(VAlign_Center)
+			.HAlign(HAlign_Fill)
+			[
+				SNew(SButton)
+				.Content()
+				[
+					SNew(STextBlock)
+					.Text(LOCTEXT("Settings", "Settings"))
+				]
+			]
+			+ SHorizontalBox::Slot()
+			.VAlign(VAlign_Center)
+			.HAlign(HAlign_Fill)
+			[
+				SNew(SButton)
+				.Content()
+				[
+					SNew(STextBlock)
+					.Text(LOCTEXT("QuitGame", "Quit"))
+				]
+			]
 		]
 	];
 

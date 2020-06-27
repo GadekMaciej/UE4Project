@@ -10,7 +10,7 @@
 void ATapczanHud::BeginPlay()
 {
 	MainMenu = SNew(SMainMenu).OwnerHUD(this);
-	if (GEngine)
+	if (GEngine && GEngine->GameViewport)
 	{
 		GEngine->GameViewport->AddViewportWidgetContent(SNew(SWeakWidget).PossiblyNullContent(MainMenu.ToSharedRef()));
 
