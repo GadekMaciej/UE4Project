@@ -19,47 +19,45 @@ void SMainMenu::Construct(const FArguments& InArgs)
 
 		SNew(SOverlay)
 		+ SOverlay::Slot()
-		.Padding(100)
-		.VAlign(VAlign_Bottom)
+		.Padding(200)
+		.VAlign(VAlign_Fill)
 		.HAlign(HAlign_Fill)
 		[
-			SNew(SHorizontalBox)
-			+ SHorizontalBox::Slot()
-			.Padding(100)
+			SNew(SVerticalBox)
+			+ SVerticalBox::Slot()
 			.VAlign(VAlign_Center)
+			.HAlign(HAlign_Center)
+			[
+				SNew(STextBlock)
+				.Text(LOCTEXT("GameTitle", "Tapczan Game"))
+			]
+			+ SVerticalBox::Slot()
+			.VAlign(VAlign_Fill)
 			.HAlign(HAlign_Fill)
+			.AutoHeight()
+			[
+				SNew(SButton)
+				.VAlign(VAlign_Center)
+				.HAlign(HAlign_Center)
+				.Content()
+				[
+					SNew(STextBlock)
+					.Text(LOCTEXT("PlayGame", "Play"))
+					.Font(FSlateFontInfo(FString("Roboto"), 20))
+					//.Text(FText::FromString("String"))
+					//-M Later find out why this doesn't work instead of LOCTEXT above
+				]
+			]
+			+ SVerticalBox::Slot()
+			.VAlign(VAlign_Fill)
+			.HAlign(HAlign_Fill)
+			.AutoHeight()
 			[
 				SNew(SButton)
 				.Content()
 				[
 					SNew(STextBlock)
 					.Text(LOCTEXT("PlayGame", "Play"))
-					//.Text(FText::FromString("String"))
-					//-M Later find out why this doesn't work instead of LOCTEXT above
-				]
-			]
-			+ SHorizontalBox::Slot()
-			.Padding(100)
-			.VAlign(VAlign_Center)
-			.HAlign(HAlign_Fill)
-			[
-				SNew(SButton)
-				.Content()
-				[
-					SNew(STextBlock)
-					.Text(LOCTEXT("Settings", "Settings"))
-				]
-			]
-			+ SHorizontalBox::Slot()
-			.Padding(100)
-			.VAlign(VAlign_Center)
-			.HAlign(HAlign_Fill)
-			[
-				SNew(SButton)
-				.Content()
-				[
-					SNew(STextBlock)
-					.Text(LOCTEXT("QuitGame", "Quit"))
 				]
 			]
 		]
