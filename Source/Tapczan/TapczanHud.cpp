@@ -12,8 +12,11 @@
 
 void ATapczanHud::BeginPlay()
 {
-	UserInterface = CreateWidget<UUWMainMenu>(this->PlayerOwner, UUWMainMenu::StaticClass());
-	UserInterface->AddToViewport(0);
+	KLOCEK = CreateWidget<UUWMainMenu>(GetWorld(), UserInterface);
+	if (UserInterface)
+	{
+		KLOCEK->AddToViewport(0);
+	}
 	//MainMenu = SNew(SMainMenu).OwnerHUD(this);
 	//if (GEngine && GEngine->GameViewport)
 	//{

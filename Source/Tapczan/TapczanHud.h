@@ -23,9 +23,10 @@ public:
 	//TSharedPtr<SMainMenu> MainMenu;
 
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Interfaceeeee")
+	TSubclassOf<UUWMainMenu> UserInterface;
 
-	UUWMainMenu* UserInterface;
-
+	UUWMainMenu* KLOCEK;
 	void BeginPlay();
 
 	
