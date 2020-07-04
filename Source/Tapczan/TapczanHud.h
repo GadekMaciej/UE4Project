@@ -8,6 +8,7 @@
 #include "TapczanHud.generated.h"
 
 class SMainMenu;
+class UUWMainMenu;
 
 /**
  * 
@@ -19,8 +20,13 @@ class TAPCZAN_API ATapczanHud : public AHUD
 
 public:
 
-	TSharedPtr<SMainMenu> MainMenu;
+	//TSharedPtr<SMainMenu> MainMenu;
+
+
+
+	UUWMainMenu* UserInterface;
 
 	void BeginPlay();
+
 	
 };

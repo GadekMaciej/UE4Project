@@ -2,6 +2,7 @@
 
 #include "TapczanGameMode.h"
 #include "TapczanCharacter.h"
+#include "TapczanController.h"
 #include "TapczanHud.h"
 #include "UObject/ConstructorHelpers.h"
 
@@ -16,4 +17,5 @@ ATapczanGameMode::ATapczanGameMode()
 
 	// -M set default HUD to SMainMenu
 	HUDClass = ATapczanHud::StaticClass();
+	PlayerControllerClass = ATapczanController::StaticClass();
 }

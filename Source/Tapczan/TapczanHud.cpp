@@ -2,18 +2,23 @@
 
 
 #include "TapczanHud.h"
+#include "UWMainMenu.h"
 #include "Widgets/SWeakWidget.h"
+#include "Blueprint/UserWidget.h"
 #include "Engine.h"
 #include "SMainMenu.h"
+#include "Kismet/GameplayStatics.h"
 #include "Runtime/Engine/Classes/Engine/Engine.h" 
 
 void ATapczanHud::BeginPlay()
 {
-	MainMenu = SNew(SMainMenu).OwnerHUD(this);
-	if (GEngine && GEngine->GameViewport)
-	{
-		GEngine->GameViewport->AddViewportWidgetContent(SNew(SWeakWidget).PossiblyNullContent(MainMenu.ToSharedRef()));
+	UserInterface = CreateWidget<UUWMainMenu>(this->PlayerOwner, UUWMainMenu::StaticClass());
+	UserInterface->AddToViewport(0);
+	//MainMenu = SNew(SMainMenu).OwnerHUD(this);
+	//if (GEngine && GEngine->GameViewport)
+	//{
+	//	GEngine->GameViewport->AddViewportWidgetContent(SNew(SWeakWidget).PossiblyNullContent(MainMenu.ToSharedRef()));
 
-		MainMenu->SetVisibility(EVisibility::Visible);
-	}
+	//	MainMenu->SetVisibility(EVisibility::Visible);
+	//}
 }

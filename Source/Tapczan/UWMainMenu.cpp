@@ -14,7 +14,7 @@ UUWMainMenu::UUWMainMenu(const FObjectInitializer& ObjectInitializer) : Super(Ob
 void UUWMainMenu::NativeConstruct()
 {
 	Super::NativeConstruct();
-	StartButton->OnClicked.AddDynamic(this, &UUWMainMenu::LoadLevel);
+	//StartButton->OnClicked.AddDynamic(this, &UUWMainMenu::LoadLevel);
 }
 
 void UUWMainMenu::TestFunction()
