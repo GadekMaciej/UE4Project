@@ -34,7 +34,6 @@ public:
 	void TestFunction();
 	UFUNCTION()
 	void LoadLevel();
-
-private:
+	UFUNCTION()
 	void HideMainMenu();
 };

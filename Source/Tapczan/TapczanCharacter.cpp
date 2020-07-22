@@ -8,6 +8,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "TapczanHud.h"
+#include "UWMainMenu.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ATapczanCharacter
@@ -74,6 +77,11 @@ void ATapczanCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerI
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ATapczanCharacter::OnResetVR);
+
+
+
+	//tapczan specific
+	PlayerInputComponent->BindAction("InvokeMainMenu", IE_Pressed, this, &ATapczanCharacter::InvokeMainMenu);
 }
 
 
@@ -90,6 +98,19 @@ void ATapczanCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Loca
 void ATapczanCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
 		StopJumping();
+}
+
+void ATapczanCharacter::InvokeMainMenu()
+{
+	//get HUD from player controller
+	ATapczanHud* HUDRef = Cast<ATapczanHud>(UGameplayStatics::GetPlayerController(this, 0)->GetHUD());
+	if (HUDRef)
+	{
+		if (HUDRef->MainMenuWidget->IsVisible())
+			HUDRef->MainMenuWidget->HideMainMenu();
+		else
+			HUDRef->MainMenuWidget->SetVisibility(ESlateVisibility::Visible);
+	}
 }
 
 void ATapczanCharacter::TurnAtRate(float Rate)

@@ -12,10 +12,10 @@
 
 void ATapczanHud::BeginPlay()
 {
-	KLOCEK = CreateWidget<UUWMainMenu>(GetWorld(), UserInterface);
-	if (UserInterface)
+	MainMenuWidget = CreateWidget<UUWMainMenu>(GetWorld(), UserInterface);
+	if (MainMenuWidget)
 	{
-		KLOCEK->AddToViewport(0);
+		MainMenuWidget->AddToViewport(0);
 	}
 	//MainMenu = SNew(SMainMenu).OwnerHUD(this);
 	//if (GEngine && GEngine->GameViewport)

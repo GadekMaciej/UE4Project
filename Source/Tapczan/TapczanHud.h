@@ -26,7 +26,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Interfaceeeee")
 	TSubclassOf<UUWMainMenu> UserInterface;
 
-	UUWMainMenu* KLOCEK;
+	UUWMainMenu* MainMenuWidget;
 	void BeginPlay();
 
 	
